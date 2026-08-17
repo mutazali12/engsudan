@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بوابة المجلس الهندسي السوداني الإلكترونية الموحدة</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -26,25 +27,21 @@
             }
         }
     </script>
+    
     <!-- Google Fonts: Cairo -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
+    
+    <!-- استدعاء ملف التنسيقات الخارجية المخصصة -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    
+    <!-- المكتبات الخارجية: Lucide Icons و Three.js -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Three.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <style>
-        body { font-family: 'Cairo', sans-serif; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(11, 25, 44, 0.08);
-        }
-    </style>
 </head>
-<body class="bg-slate-50 text-navy-800 antialiased selection:bg-navy-800 selection:text-white">
+<body class="bg-slate-50 text-navy-800 antialiased selection:bg-navy-800 selection:text-white engineering-grid-bg">
 
     <!-- شريط التنقل العلوي -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 rounded-xl bg-navy-800 flex items-center justify-center text-white shadow-lg shadow-navy-800/20">
@@ -59,7 +56,7 @@
             <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
                 <a href="#hero" class="hover:text-navy-600 transition">الرئيسية</a>
                 <a href="#services" class="hover:text-navy-600 transition">الخدمات الأساسية</a>
-                <a href="#architecture" class="hover:text-navy-600 transition">الهيكل التقني</a>
+                <a href="#workflow" class="hover:text-navy-600 transition">آلية التنفيذ</a>
             </nav>
 
             <button onclick="openModal()" class="flex items-center gap-2 bg-navy-800 hover:bg-navy-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-navy-800/20 transition transform active:scale-95">
@@ -109,8 +106,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- خدمة 1 -->
-                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                <div class="glass-panel p-8 rounded-2xl">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6 shadow-md shadow-navy-800/20">
                         <i data-lucide="user-check" class="w-7 h-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-navy-900 mb-3">السجل والرقم الهندسي</h3>
@@ -120,8 +117,8 @@
                 </div>
 
                 <!-- خدمة 2 -->
-                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                <div class="glass-panel p-8 rounded-2xl">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6 shadow-md shadow-navy-800/20">
                         <i data-lucide="trending-up" class="w-7 h-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-navy-900 mb-3">السلم المهني والترقيات</h3>
@@ -131,8 +128,8 @@
                 </div>
 
                 <!-- خدمة 3 -->
-                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                <div class="glass-panel p-8 rounded-2xl">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6 shadow-md shadow-navy-800/20">
                         <i data-lucide="building-2" class="w-7 h-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-navy-900 mb-3">المكاتب والشركات الاستشارية</h3>
@@ -142,8 +139,8 @@
                 </div>
 
                 <!-- خدمة 4 -->
-                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                <div class="glass-panel p-8 rounded-2xl">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6 shadow-md shadow-navy-800/20">
                         <i data-lucide="qr-code" class="w-7 h-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-navy-900 mb-3">الشهادات المشفرة (QR Code)</h3>
@@ -153,8 +150,8 @@
                 </div>
 
                 <!-- خدمة 5 -->
-                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition md:col-span-2 lg:col-span-2">
-                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                <div class="glass-panel p-8 rounded-2xl md:col-span-2 lg:col-span-2">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6 shadow-md shadow-navy-800/20">
                         <i data-lucide="network" class="w-7 h-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-navy-900 mb-3">الربط والتكامل مع التخطيط العمراني</h3>
@@ -243,16 +240,28 @@
 
                 <p class="font-bold text-navy-800 text-center pt-2">وتفضلوا بقبول فائق الشكر والتقدير،،</p>
 
-                <!-- بطاقة التوقيع ومقدم المقترح -->
+                <!-- بطاقة التوقيع ومقدم المقترح مع إمكانية النسخ -->
                 <div class="border-t border-slate-200 pt-6 mt-6 grid sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl">
                     <div>
                         <p class="text-xs text-slate-500 font-semibold">مقدم المقترح:</p>
                         <p class="font-bold text-navy-900 text-base">معتز مدثر علي</p>
                         <p class="text-xs text-navy-600 font-semibold">مهندس ومطور برمجيات</p>
                     </div>
-                    <div class="sm:text-left text-xs space-y-1 text-slate-600">
-                        <p><span class="font-bold text-navy-900">هاتف / واتساب:</span> 0912500618</p>
-                        <p><span class="font-bold text-navy-900">البريد الإلكتروني:</span> Mutazlifezone@gmail.com</p>
+                    <div class="sm:text-left text-xs space-y-2 text-slate-600">
+                        <div class="flex items-center sm:justify-end gap-2">
+                            <span class="font-bold text-navy-900">هاتف / واتساب:</span>
+                            <button onclick="copyToClipboard('0912500618', 'رقم الهاتف')" class="hover:text-accent flex items-center gap-1 bg-white px-2 py-1 rounded border border-slate-200">
+                                <span>0912500618</span>
+                                <i data-lucide="copy" class="w-3 h-3"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center sm:justify-end gap-2">
+                            <span class="font-bold text-navy-900">البريد الإلكتروني:</span>
+                            <button onclick="copyToClipboard('Mutazlifezone@gmail.com', 'البريد الإلكتروني')" class="hover:text-accent flex items-center gap-1 bg-white px-2 py-1 rounded border border-slate-200">
+                                <span>Mutazlifezone@gmail.com</span>
+                                <i data-lucide="copy" class="w-3 h-3"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -278,97 +287,8 @@
         </div>
     </footer>
 
-    <!-- منطق الحركات ومجسم Three.js -->
-    <script>
-        lucide.createIcons();
-
-        function openModal() {
-            document.getElementById('letterModal').classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('letterModal').classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
-        }
-
-        // إغلاق النافذة عند الضغط على مفتاح Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
-
-        // 3D Scene Initialization
-        const container = document.getElementById('canvas-container');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / (window.innerHeight * 0.85), 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-
-        renderer.setSize(window.innerWidth, window.innerHeight * 0.85);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        container.appendChild(renderer.domElement);
-
-        // إنشاء شبكة هندسية ثلاثية الأبعاد تمثل البناء الرقمي
-        const group = new THREE.Group();
-        
-        // هيكل هندسي سلكي خارجي
-        const icosaGeometry = new THREE.IcosahedronGeometry(2.4, 1);
-        const icosaMaterial = new THREE.MeshBasicMaterial({ 
-            color: 0x1E3E62, 
-            wireframe: true, 
-            transparent: true, 
-            opacity: 0.35 
-        });
-        const icosaMesh = new THREE.Mesh(icosaGeometry, icosaMaterial);
-        group.add(icosaMesh);
-
-        // نواة صلبة داخلية تعبر عن الاستقرار والاعتماد
-        const innerGeometry = new THREE.OctahedronGeometry(1.2, 0);
-        const innerMaterial = new THREE.MeshStandardMaterial({ 
-            color: 0x0B192C, 
-            roughness: 0.2, 
-            metalness: 0.8 
-        });
-        const innerMesh = new THREE.Mesh(innerGeometry, innerMaterial);
-        group.add(innerMesh);
-
-        // إضاءة المشهد
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-        scene.add(ambientLight);
-
-        const pointLight = new THREE.PointLight(0x2563EB, 2, 50);
-        pointLight.position.set(5, 5, 5);
-        scene.add(pointLight);
-
-        scene.add(group);
-        camera.position.z = 5;
-
-        // تفاعل المجسم مع تحريك الماوس
-        let mouseX = 0, mouseY = 0;
-        document.addEventListener('mousemove', (event) => {
-            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-        });
-
-        // حلقة التحريك
-        function animate() {
-            requestAnimationFrame(animate);
-            group.rotation.x += 0.003;
-            group.rotation.y += 0.004;
-
-            // استجابة خفيفة لحركة المؤشر
-            group.rotation.x += (mouseY * 0.3 - group.rotation.x) * 0.05;
-            group.rotation.y += (mouseX * 0.3 - group.rotation.y) * 0.05;
-
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // تجاوب المشهد مع تغير حجم الشاشة
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / (window.innerHeight * 0.85);
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight * 0.85);
-        });
-    </script>
+    <!-- استدعاء ملفات الجافاسكربت المنفصلة -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/scene3d.js"></script>
 </body>
 </html>
