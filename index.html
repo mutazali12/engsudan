@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة المجلس الهندسي السوداني الإلكترونية الموحدة</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#07101c',
+                            800: '#0b192c',
+                            700: '#142c4b',
+                            600: '#1e3e62',
+                        },
+                        accent: '#2563eb'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(11, 25, 44, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-navy-800 antialiased selection:bg-navy-800 selection:text-white">
+
+    <!-- شريط التنقل العلوي -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-navy-800 flex items-center justify-center text-white shadow-lg shadow-navy-800/20">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-black tracking-tight text-navy-800 block">المجلس الهندسي السوداني</span>
+                    <span class="text-xs text-slate-500 font-semibold">بوابة الخدمات الرقمية والاعتماد المهني</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+                <a href="#hero" class="hover:text-navy-600 transition">الرئيسية</a>
+                <a href="#services" class="hover:text-navy-600 transition">الخدمات الأساسية</a>
+                <a href="#architecture" class="hover:text-navy-600 transition">الهيكل التقني</a>
+            </nav>
+
+            <button onclick="openModal()" class="flex items-center gap-2 bg-navy-800 hover:bg-navy-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-navy-800/20 transition transform active:scale-95">
+                <i data-lucide="file-text" class="w-4 h-4"></i>
+                <span>وثيقة خطاب البدء</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- واجهة البداية والمجسم ثلاثي الأبعاد -->
+    <section id="hero" class="relative min-h-[85vh] flex items-center overflow-hidden bg-white border-b border-slate-100">
+        <div id="canvas-container" class="absolute inset-0 z-0 pointer-events-none opacity-40 md:opacity-100"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-navy-800 text-xs font-bold">
+                    <i data-lucide="cpu" class="w-4 h-4 text-navy-600"></i>
+                    الجيل القادم من أتمتة العمل الهندسي
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-navy-900 leading-tight">
+                    نواة المعمار الرقمي <br>
+                    <span class="text-navy-600">للمجلس الهندسي</span>
+                </h1>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
+                    منظومة وطنية متكاملة لإدارة دورة السجل الهندسي، الاعتماد المهني، وتكامل الربط اللحظي مع وزارة التخطيط العمراني باستخدام أعلى معايير الحماية والأرشفة المشفرة.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <button onclick="openModal()" class="flex items-center gap-2 bg-navy-800 hover:bg-navy-700 text-white px-6 py-3.5 rounded-xl font-bold shadow-xl shadow-navy-800/20 transition">
+                        <i data-lucide="mail-check" class="w-5 h-5"></i>
+                        <span>عرض مقترح التنفيذ الرسمي</span>
+                    </button>
+                    <a href="#services" class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-navy-800 px-6 py-3.5 rounded-xl font-bold border border-slate-200 transition">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                        <span>استعراض الإمكانيات</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات والوظائف التنفيذية -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-black text-navy-900">وظائف وخدمات المنصة</h2>
+                <p class="text-slate-600 mt-2">الأتمتة الشاملة لجميع مسارات العمل الإدارية والمهنية</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- خدمة 1 -->
+                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="user-check" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">السجل والرقم الهندسي</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        تسجيل الكوادر (مهندسون، تقنيون، وفنيون)، رفع الشهادات الموثقة، السداد الإلكتروني، وإصدار الرقم الهندسي المعتمد آلياً.
+                    </p>
+                </div>
+
+                <!-- خدمة 2 -->
+                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="trending-up" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">السلم المهني والترقيات</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        أتمتة الترفيع المهني من خريج إلى أخصائي ومستشار، وإدارة التزكيات المهنية وحجز مواعيد لجان التقييم والاختبارات.
+                    </p>
+                </div>
+
+                <!-- خدمة 3 -->
+                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="building-2" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">المكاتب والشركات الاستشارية</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        إصدار وتجديد رخص المكاتب الاستشارية، تصنيفها، إدارة كادرها الهندسي المسجل، والتحقق الفوري من سريان القيود.
+                    </p>
+                </div>
+
+                <!-- خدمة 4 -->
+                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="qr-code" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">الشهادات المشفرة (QR Code)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        إصدار بطاقات القيد وشهادات التسجيل والإفادات مزودة برمز استجابة سريع مشفر لمنع التزوير والتحقق منها عالمياً.
+                    </p>
+                </div>
+
+                <!-- خدمة 5 -->
+                <div class="glass-card p-8 rounded-2xl shadow-sm hover:shadow-md transition md:col-span-2 lg:col-span-2">
+                    <div class="w-14 h-14 bg-navy-800 text-white rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="network" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">الربط والتكامل مع التخطيط العمراني</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        واجهة برمجية مباشرة (Secure API) لتمكين وزارة التخطيط العمراني والبلديات من التحقق اللحظي من اعتماد توقيعات وصلاحيات المهندسين المصممين والمشرفين على المخططات الإنشائية وتراخيص البناء.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة منبثقة للخطاب الرسمي الموحد -->
+    <div id="letterModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-navy-900/60 backdrop-blur-sm p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+        <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transform transition-all">
+            
+            <!-- رأس النافذة -->
+            <div class="bg-navy-800 text-white p-6 flex justify-between items-center border-b border-navy-700">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                    <h3 class="text-lg font-bold">الخطاب الرسمي لمقترح بدء التنفيذ</h3>
+                </div>
+                <button onclick="closeModal()" class="text-slate-300 hover:text-white transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- نص الخطاب الموحد المكتمل -->
+            <div class="p-8 sm:p-12 space-y-6 text-navy-900 leading-relaxed text-sm sm:text-base max-h-[75vh] overflow-y-auto">
+                <div class="text-center font-bold text-lg mb-4 text-navy-900">بسم الله الرحمن الرحيم</div>
+                
+                <div class="flex flex-col sm:flex-row justify-between text-xs sm:text-sm text-slate-500 border-b border-slate-100 pb-4 gap-2">
+                    <div><strong>التاريخ:</strong> 16 أغسطس 2026م</div>
+                    <div><strong>الرقم المرجعي:</strong> SEC/INIT/2026-08</div>
+                </div>
+
+                <div class="space-y-1">
+                    <p class="font-bold">السيد / الأمين العام للمجلس الهندسي السوداني المحترم</p>
+                    <p class="font-semibold text-slate-600">المحترمون / المجلس الهندسي السوداني</p>
+                    <p class="font-semibold">السلام عليكم ورحمة الله وبركاته،،</p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <p class="font-bold text-navy-900">الموضوع: مقترح مشروع "بوابة المجلس الهندسي الإلكترونية الموحدة" والربط مع وزارة التخطيط العمراني</p>
+                </div>
+
+                <p class="text-justify text-slate-700">
+                    بالإشارة إلى قانون المجلس الهندسي ولوائح تنظيم الممارسة المهنية، وتماشياً مع التوجه العام نحو التحول الرقمي وتبسيط المعاملات وتسهيل وصول الكوادر الهندسية للخدمات من داخل وخارج السودان؛ أتقدم لسيادتكم بمقترح مبادرة برمجية لتطوير <strong>"بوابة المجلس الهندسي الإلكترونية الموحدة"</strong> عبر الويب، والتي تهدف إلى أتمتة دورة العمل الإدارية والمهنية بالكامل وتقديم الحلول التالية:
+                </p>
+
+                <div class="space-y-3 pr-2">
+                    <div class="flex gap-2">
+                        <span class="font-bold text-navy-800">1.</span>
+                        <p><strong class="text-navy-900">التسجيل واستخراج الرقم الهندسي:</strong> تمكين المهندسين، التقنيين، وفنيي الهندسة من التقديم ورفع الشهادات الموثقة وسداد الرسوم إلكترونياً.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="font-bold text-navy-800">2.</span>
+                        <p><strong class="text-navy-900">إدارة السلم المهني والترقيات:</strong> أتمتة متطلبات الترفيع (من خريج إلى أخصائي ومستشار)، ونظام التزكيات الإلكتروني، وحجز لجان التقييم.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="font-bold text-navy-800">3.</span>
+                        <p><strong class="text-navy-900">خدمات المكاتب الاستشارية والشركات:</strong> ترخيص وتصنيف المكاتب وإدارة كوادرها الفنية والتحقق من سريان قيودها.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="font-bold text-navy-800">4.</span>
+                        <p><strong class="text-navy-900">الشهادات والإفادات الرقمية:</strong> إصدار بطاقات القيد والشهادات المهنية المؤمّنة برمز الاستجابة السريع (QR Code) للتحقق الفوري ومنع التزوير.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="font-bold text-navy-800">5.</span>
+                        <p><strong class="text-navy-900">التكامل مع وزارة التخطيط العمراني:</strong> توفير واجهة (API) للتحقق اللحظي من اعتماد توقيعات المهندسين المصممين والمشرفين على المخططات الإنشائية وتراخيص البناء.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <h4 class="font-bold text-navy-900 border-r-4 border-navy-800 pr-3">آلية ومقترح التنفيذ:</h4>
+                    <p class="text-justify text-slate-700">حرصاً على نجاح المشروع وتقديم أعلى معايير الجودة، فإنني ألتزم بالآتي:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-700 pr-2">
+                        <li><strong>التطوير البرمجي والاختبار:</strong> تولي مسؤولية تصميم وبرمجة وبناء المنصة بالكامل كنموذج تطبيقي متكامل (Working Prototype) واختبار مسارات العمل وبوابات الدفع والتحقق الأمني.</li>
+                        <li><strong>الاعتماد والتسليم:</strong> بعد اكتمال البرمجة وإجراء الاختبارات التشغيلية والتأكد من مطابقتها التامة للوائح المجلس، يتم تقديم النظام جاهزاً لسيادتكم للمراجعة والاعتماد النهائي.</li>
+                        <li><strong>التكاليف والتعاقد:</strong> لا يُطالب المجلس بأي التزامات مالية خلال فترة التطوير؛ على أن يتم الاتفاق المالي وجدولة تكاليف المشروع والتسليم التشغيلي ونقل الملكية وإدارة الخوادم بعد انتهاء البرمجة والاختبار بنجاح ونيل موافقتكم واعتمادكم للنظام.</li>
+                    </ul>
+                </div>
+
+                <p class="text-justify text-slate-700">
+                    نرجو من سيادتكم التكرم بالموافقة المبدئية على المقترح والاطلاع على تفاصيل المخطط الفني ومسارات العمل لتوجيه ما يلزم وفق متطلباتكم التنظيمية.
+                </p>
+
+                <p class="font-bold text-navy-800 text-center pt-2">وتفضلوا بقبول فائق الشكر والتقدير،،</p>
+
+                <!-- بطاقة التوقيع ومقدم المقترح -->
+                <div class="border-t border-slate-200 pt-6 mt-6 grid sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl">
+                    <div>
+                        <p class="text-xs text-slate-500 font-semibold">مقدم المقترح:</p>
+                        <p class="font-bold text-navy-900 text-base">معتز مدثر علي</p>
+                        <p class="text-xs text-navy-600 font-semibold">مهندس ومطور برمجيات</p>
+                    </div>
+                    <div class="sm:text-left text-xs space-y-1 text-slate-600">
+                        <p><span class="font-bold text-navy-900">هاتف / واتساب:</span> 0912500618</p>
+                        <p><span class="font-bold text-navy-900">البريد الإلكتروني:</span> Mutazlifezone@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تذييل النافذة -->
+            <div class="bg-slate-50 p-4 border-t border-slate-200 flex justify-end">
+                <button onclick="closeModal()" class="bg-navy-800 hover:bg-navy-700 text-white px-6 py-2 rounded-xl text-sm font-bold transition">
+                    إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- تذييل الصفحة -->
+    <footer class="bg-navy-900 text-slate-400 py-12 border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">
+            <div class="flex items-center gap-2">
+                <i data-lucide="shield" class="w-5 h-5 text-white"></i>
+                <span class="text-white font-semibold">المجلس الهندسي السوداني</span>
+                <span>- النظام الرقمي الموحد 2026</span>
+            </div>
+            <p>تم إعداد وتطوير المبادرة البرمجية بواسطة م. معتز مدثر علي</p>
+        </div>
+    </footer>
+
+    <!-- منطق الحركات ومجسم Three.js -->
+    <script>
+        lucide.createIcons();
+
+        function openModal() {
+            document.getElementById('letterModal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('letterModal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // إغلاق النافذة عند الضغط على مفتاح Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // 3D Scene Initialization
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / (window.innerHeight * 0.85), 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+        renderer.setSize(window.innerWidth, window.innerHeight * 0.85);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        // إنشاء شبكة هندسية ثلاثية الأبعاد تمثل البناء الرقمي
+        const group = new THREE.Group();
+        
+        // هيكل هندسي سلكي خارجي
+        const icosaGeometry = new THREE.IcosahedronGeometry(2.4, 1);
+        const icosaMaterial = new THREE.MeshBasicMaterial({ 
+            color: 0x1E3E62, 
+            wireframe: true, 
+            transparent: true, 
+            opacity: 0.35 
+        });
+        const icosaMesh = new THREE.Mesh(icosaGeometry, icosaMaterial);
+        group.add(icosaMesh);
+
+        // نواة صلبة داخلية تعبر عن الاستقرار والاعتماد
+        const innerGeometry = new THREE.OctahedronGeometry(1.2, 0);
+        const innerMaterial = new THREE.MeshStandardMaterial({ 
+            color: 0x0B192C, 
+            roughness: 0.2, 
+            metalness: 0.8 
+        });
+        const innerMesh = new THREE.Mesh(innerGeometry, innerMaterial);
+        group.add(innerMesh);
+
+        // إضاءة المشهد
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0x2563EB, 2, 50);
+        pointLight.position.set(5, 5, 5);
+        scene.add(pointLight);
+
+        scene.add(group);
+        camera.position.z = 5;
+
+        // تفاعل المجسم مع تحريك الماوس
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // حلقة التحريك
+        function animate() {
+            requestAnimationFrame(animate);
+            group.rotation.x += 0.003;
+            group.rotation.y += 0.004;
+
+            // استجابة خفيفة لحركة المؤشر
+            group.rotation.x += (mouseY * 0.3 - group.rotation.x) * 0.05;
+            group.rotation.y += (mouseX * 0.3 - group.rotation.y) * 0.05;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // تجاوب المشهد مع تغير حجم الشاشة
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / (window.innerHeight * 0.85);
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight * 0.85);
+        });
+    </script>
+</body>
+</html>
